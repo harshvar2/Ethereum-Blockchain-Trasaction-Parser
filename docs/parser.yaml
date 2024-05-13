@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: Parser API
+  description: |
+    The Parser API is used to perform operations on the given address
+
+  version: 1.0.0
+
+paths:
+  /currentBlock:
+    get:
+      summary: Get the current block id
+      description: |
+        The endpoint is used to get the current block id
+      responses:
+        200:
+          description: "Successful Operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The current block id
+                    example: 12345
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the operation
+                    example: "error"
+                  message:
+                    type: string
+                    description: The message of the operation
+                    example: "Internal Server Error"
+      operationId: currentBlock
+  /subscribe:
+    post:
+      summary: Subscribe to the given address
+      description: |
+        The endpoint is used to subscribe to the given address
+      parameters:
+        - in: path
+          name: address
+          schema:
+            type: string
+          required: true
+          description: The address to subscribe to
+      responses:
+        200:
+          description: "Successful Operation"
+          content:
+            application/json:
+              schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      description: The status of the operation
+                      example: "success"
+                    message:
+                      type: string
+                      description: The message of the operation
+                      example: "Address subscribed successfully"
+                
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the operation
+                    example: "error"
+                  message:
+                    type: string
+                    description: The message of the operation
+                    example: "Invalid address"
+                
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the operation
+                    example: "error"
+                  message:
+                    type: string
+                    description: The message of the operation
+                    example: "Internal Server Error"
+      operationId: subscribe
+  /transactions:
+    get:
+      summary: Get the transactions of the given address
+      description: |
+        The endpoint is used to get the transactions of the given address
+      parameters:
+        - in: path
+          name: address
+          schema:
+            type: string
+          required: true
+          description: The address to get the transactions of
+      responses:
+        200:
+          description: "Successful Operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        from:
+                          type: string
+                          description: The sender of the transaction
+                          example: "0x12345"
+                        to:
+                          type: string
+                          description: The receiver of the transaction
+                          example: "0x67890"
+                        value:
+                          type: integer
+                          description: The value of the transaction
+                          example: 100
+                        blockNumber:
+                          type: integer
+                          description: The block number of the transaction
+                          example: 12345
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the operation
+                    example: "error"
+                  message:
+                    type: string
+                    description: The message of the operation
+                    example: "Invalid address"
+                
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the operation
+                    example: "error"
+                  message:
+                    type: string
+                    description: The message of the operation
+                    example: "Internal Server Error"
+      operationId: transactions
+
+
+
+
