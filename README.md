@@ -20,6 +20,10 @@ The Ethereum Blockchain Transaction Parser is a service that allows querying tra
 
 - [API Documentation](https://ethereum-blockchain-transaction-parser.onrender.com/docs/)
 
+Note: The documentation requires authentication. Use the following credentials:
+
+Username: user1 Password: password1
+
 The application is deployed on render.com by Rebecca, and the live documentation can be found at the URL provided above.
 
 ---
