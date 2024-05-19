@@ -1,21 +1,25 @@
 # Ethereum Blockchain Transaction Parser
-Ethereum blockchain parser is a service to allow to query transactions for subscribed address
 
-## [Pre-requisites](#Pre-requisites)
+The Ethereum Blockchain Transaction Parser is a service that allows querying transactions for subscribed address.
 
-- Download [Go](https://golang.org/dl/)
-```
+## Pre-requisites
 
+1. Download [Go](https://golang.org/dl/)
 
-- Install dependencies
-```bash
-go mod download
-```
+2. Install dependencies:
+    ```bash
+    go mod download
+    ```
 
-- Run the application
-```bash
-go run app/main.go
-```
+3. Run the application:
+    ```bash
+    go run app/main.go
+    ```
 
-### Documentation
-- [API Documentation](http://localhost/docs)
+## Documentation
+
+- [API Documentation](https://ethereum-blockchain-transaction-parser.onrender.com/docs/)
+
+The application is deployed on render.com by Rebecca, and the live documentation can be found at the URL provided above.
+
+---
